@@ -36,6 +36,8 @@ COPY --from=builder /build/build/ build/
 COPY web/ web/
 COPY package.json package.json
 
+ENV PORT 8080
+ENV HOST 0.0.0.0
+
 ENTRYPOINT ["npm", "run"]
 CMD ["start:production"]
-EXPOSE 8080
