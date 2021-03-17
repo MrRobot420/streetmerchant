@@ -38,3 +38,4 @@ COPY package.json package.json
 
 ENTRYPOINT ["npm", "run"]
 CMD ["start:production"]
+EXPOSE 8080
