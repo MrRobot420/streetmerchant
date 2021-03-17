@@ -104,6 +104,7 @@ async function stopAndExit() {
 async function loopMain() {
   try {
     restartMain();
+    startAPIServer();
     await main();
   } catch (error: unknown) {
     logger.error(
