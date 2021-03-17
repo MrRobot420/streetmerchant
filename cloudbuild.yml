@@ -1,0 +1,9 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/streetmerchant:${SHORT_SHA}', '.']
+    # PUSH IMAGE TO REPO
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ["push", "gcr.io/$PROJECT_ID/streetmerchant"]
+    # DEPLOY CLOUD RUN
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['beta', 'run', 'deploy', 'streetmerchant', '--image', 'gcr.io/$PROJECT_ID/streetmerchant:${SHORT_SHA}', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
