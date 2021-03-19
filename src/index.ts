@@ -103,7 +103,6 @@ async function stopAndExit() {
  */
 async function loopMain() {
   try {
-    await startAPIServer();
     restartMain();
     await main();
   } catch (error: unknown) {
